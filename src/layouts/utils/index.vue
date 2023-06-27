@@ -10,7 +10,5 @@
 </template>
 
 <script setup>
-import Menubar from '@/layouts/menuBar/menubar.vue';
-import Topic from '@/layouts/topic/topic.vue';
-import Dock from '@/layouts/dock/dock.vue';
+import Menubar from '@/layouts/menuBar/navBar.vue';
 </script>
