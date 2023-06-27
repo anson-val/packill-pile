@@ -10,6 +10,7 @@
 	},
 	"dependencies": {
 		"@heroicons/vue": "^2.0.15",
+		"@icon-park/vue-next": "^1.4.2",
 		"@intlify/unplugin-vue-i18n": "^0.11.0",
 		"@meilisearch/instant-meilisearch": "^0.13.0",
 		"@popperjs/core": "^2.11.7",
