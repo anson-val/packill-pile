@@ -1,7 +1,7 @@
 <template>
 	<Activity>
 		<template #icon>
-			<StarOneIcon theme="filled" size="16" fill="#ffffff"/>
+			<FireworksIcon theme="filled" size="16" fill="#ffffff"/>
 		</template>
 		<template #message>
 			{{displayName}}
@@ -13,7 +13,7 @@
 </template>
 
 <script setup>
-import { StarOne as StarOneIcon } from '@icon-park/vue-next';
+import { Fireworks as FireworksIcon } from '@icon-park/vue-next';
 import Activity from '@/layouts/activity/activity.vue';
 import { computed, onUnmounted, watch } from 'vue';
 import { getActivity } from '@/api/activity.js';
