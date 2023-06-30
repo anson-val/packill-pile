@@ -1,15 +1,11 @@
 <template>
 	<Activity>
 		<template #icon>
-			<PencilIcon class="h-4 w-4" />
+			<ThinkingProblemIcon theme="outline" size="16" fill="#ffffff"/>
 		</template>
 		<template #message>
-			{{
-				$t('activity.problemCompleteMessage', {
-					displayName: displayName,
-					problemName: problemName,
-				})
-			}}
+			{{displayName}}
+			<span class='text-neutral-500'>{{ $t('activity.problemCompleteMessage', { problemName: problemName }) }}</span>
 		</template>
 		<template #createdAtDate>{{ createdAtDateString }}</template>
 		<template #createdAtTime>{{ createdAtTimeString }}</template>
@@ -18,23 +14,20 @@
 				to=""
 				class="flex w-fit items-center space-x-2 rounded-lg border bg-white p-2 hover:text-sky-800 hover:underline"
 			>
-				<PencilIcon class="h-4 w-4 text-violet-600" />
+				<ThinkingProblemIcon theme="outline" size="16" fill="#7c3aed"/>
 				<p class="text-sm font-semibold">{{ problemName }}</p>
-				<ArrowUpRightIcon class="h-3 w-3" />
+				<ArrowRightUpIcon theme="outline" size="12" />
 			</router-link>
 		</template>
 	</Activity>
 </template>
 
 <script setup>
+import { ThinkingProblem as ThinkingProblemIcon, ArrowRightUp as ArrowRightUpIcon } from '@icon-park/vue-next';
 import Activity from '@/layouts/activity/activity.vue';
 import { computed, onUnmounted, watch } from 'vue';
 import { getActivity } from '@/api/activity.js';
 import moment from 'moment';
-import {
-	PencilIcon,
-	ArrowUpRightIcon,
-} from '@heroicons/vue/24/outline/index.js';
 
 const props = defineProps({
 	activityId: Number,

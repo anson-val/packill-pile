@@ -7,6 +7,7 @@ import dashboard from '@/locale/en/dashboard.js';
 import submission from '@/locale/en/submission.js';
 import activity from '@/locale/en/activity.js';
 import locale from '@/locale/locale.js';
+import settings from '@/locale/en/settings.js';
 
 export default {
 	error,
@@ -18,4 +19,5 @@ export default {
 	submission,
 	activity,
 	locale,
+	settings,
 };

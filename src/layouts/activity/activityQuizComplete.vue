@@ -1,15 +1,11 @@
 <template>
 	<Activity>
 		<template #icon>
-			<DocumentIcon class="h-4 w-4" />
+			<PencilIcon theme="filled" size="16" fill="#ffffff"/>
 		</template>
 		<template #message>
-			{{
-				$t('activity.quizCompleteMessage', {
-					displayName: displayName,
-					quizName: name,
-				})
-			}}
+			{{ displayName }}
+			<span class='text-neutral-500'>{{$t('activity.quizCompleteMessage', { quizName: name }) }}</span>
 		</template>
 		<template #createdAtDate>{{ createdAtDateString }}</template>
 		<template #createdAtTime>{{ createdAtTimeString }}</template>
@@ -18,19 +14,16 @@
 				:to="`/quizzes/${quizId}`"
 				class="flex w-fit items-center space-x-2 rounded-lg border bg-white p-2 hover:text-sky-800 hover:underline"
 			>
-				<DocumentIcon class="h-4 w-4 text-rose-600" />
+				<PencilIcon theme="outline" size="16" fill="#e11d48"/>
 				<p class="text-sm font-semibold">{{ name }}</p>
-				<ArrowUpRightIcon class="h-3 w-3" />
+				<ArrowRightUpIcon theme="outline" size="12" />
 			</router-link>
 		</template>
 	</Activity>
 </template>
 
 <script setup>
-import {
-	ArrowUpRightIcon,
-	DocumentIcon,
-} from '@heroicons/vue/24/outline/index.js';
+import { Pencil as PencilIcon, ArrowRightUp as ArrowRightUpIcon } from '@icon-park/vue-next';
 import Activity from '@/layouts/activity/activity.vue';
 import { computed, onUnmounted, toRefs, watch } from 'vue';
 import { getActivity } from '@/api/activity.js';

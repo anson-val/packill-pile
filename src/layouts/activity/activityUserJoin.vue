@@ -1,10 +1,11 @@
 <template>
 	<Activity>
 		<template #icon>
-			<SparklesIcon class="h-4 w-4" />
+			<StarOneIcon theme="filled" size="16" fill="#ffffff"/>
 		</template>
 		<template #message>
-			{{ $t('activity.userJoinMessage', { displayName: displayName }) }}
+			{{displayName}}
+			<span class='text-neutral-500'>{{ $t('activity.userJoinMessage') }}</span>
 		</template>
 		<template #createdAtDate>{{ createdAtDateString }}</template>
 		<template #createdAtTime>{{ createdAtTimeString }}</template>
@@ -12,7 +13,7 @@
 </template>
 
 <script setup>
-import { SparklesIcon } from '@heroicons/vue/24/outline/index.js';
+import { StarOne as StarOneIcon } from '@icon-park/vue-next';
 import Activity from '@/layouts/activity/activity.vue';
 import { computed, onUnmounted, watch } from 'vue';
 import { getActivity } from '@/api/activity.js';

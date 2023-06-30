@@ -1,15 +1,11 @@
 <template>
 	<Activity>
 		<template #icon>
-			<BookOpenIcon class="h-4 w-4" />
+			<BookOneIcon theme="filled" size="16" fill="#ffffff"/>
 		</template>
 		<template #message>
-			{{
-				$t('activity.topicCompleteMessage', {
-					displayName: displayName,
-					title: title,
-				})
-			}}
+			{{ displayName }}
+			<span class='text-neutral-500'>{{$t('activity.topicCompleteMessage', { title: title }) }}</span>
 		</template>
 		<template #createdAtDate>{{ createdAtDateString }}</template>
 		<template #createdAtTime>{{ createdAtTimeString }}</template>
@@ -18,20 +14,17 @@
 				:to="`/workspace/${topicId}`"
 				class="flex w-fit items-center space-x-2 rounded-lg border bg-white p-2 hover:text-sky-800 hover:underline"
 			>
-				<BookOpenIcon class="h-4 w-4 text-orange-600" />
+				<BookOneIcon theme="outline" size="16" fill="#ea580c"/>
 				<p class="text-sm font-semibold">{{ title }}</p>
-				<ArrowUpRightIcon class="h-3 w-3" />
+				<ArrowRightUpIcon theme="filled" size="12" />
 			</router-link>
 		</template>
 	</Activity>
 </template>
 
 <script setup>
+import { BookOne as BookOneIcon, ArrowRightUp as ArrowRightUpIcon } from '@icon-park/vue-next';
 import Activity from '@/layouts/activity/activity.vue';
-import {
-	ArrowUpRightIcon,
-	BookOpenIcon,
-} from '@heroicons/vue/24/outline/index.js';
 import { computed, onUnmounted, watch } from 'vue';
 import { getActivity } from '@/api/activity.js';
 import moment from 'moment';

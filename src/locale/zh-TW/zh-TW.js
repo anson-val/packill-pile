@@ -6,6 +6,7 @@ import dashboard from '@/locale/zh-TW/dashboard.js';
 import submission from '@/locale/zh-TW/submission.js';
 import activity from '@/locale/zh-TW/activity.js';
 import locale from '@/locale/locale.js';
+import settings from '@/locale/zh-TW/settings.js';
 
 export default {
 	locale,
@@ -16,4 +17,5 @@ export default {
 	dashboard,
 	submission,
 	activity,
+	settings,
 };

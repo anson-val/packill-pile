@@ -1,32 +1,30 @@
 <template>
 	<Activity>
 		<template #icon>
-			<Square3Stack3DIcon class="h-4 w-4" />
+			<BoxIcon theme='filled' size='16' fill='#ffffff' />
 		</template>
 		<template #message>
-			{{
-				$t('activity.packageCompleteMessage', {
-					displayName: displayName,
-					packageName: packageName,
-				})
-			}}
+			{{ displayName }}
+			<span class='text-neutral-500'>{{ $t('activity.packageCompleteMessage', { packageName: packageName })
+				}}</span>
 		</template>
 		<template #createdAtDate>{{ createdAtDateString }}</template>
 		<template #createdAtTime>{{ createdAtTimeString }}</template>
 		<template #details>
 			<router-link
-				to=""
-				class="flex w-fit items-center space-x-2 rounded-lg border bg-white p-2 hover:text-sky-800 hover:underline"
+				to=''
+				class='flex w-fit items-center space-x-2 rounded-lg border bg-white p-2 hover:text-sky-800 hover:underline'
 			>
-				<Square3Stack3DIcon class="h-4 w-4 text-blue-600" />
-				<p class="text-sm font-semibold">{{ packageName }}</p>
-				<ArrowUpRightIcon class="h-3 w-3" />
+				<BoxIcon theme='outline' size='16' fill='#2563eb' />
+				<p class='text-sm font-semibold'>{{ packageName }}</p>
+				<ArrowRightUpIcon theme="outline" size="12" />
 			</router-link>
 		</template>
 	</Activity>
 </template>
 
 <script setup>
+import { Box as BoxIcon, ArrowRightUp as ArrowRightUpIcon } from '@icon-park/vue-next';
 import Activity from '@/layouts/activity/activity.vue';
 import { computed, onUnmounted, watch } from 'vue';
 import { getActivity } from '@/api/activity.js';

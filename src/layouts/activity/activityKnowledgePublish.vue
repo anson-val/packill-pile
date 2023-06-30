@@ -1,15 +1,11 @@
 <template>
 	<Activity>
 		<template #icon>
-			<DocumentArrowUpIcon class="h-4 w-4" />
+			<TipsIcon theme="filled" size="16" fill="#ffffff"/>
 		</template>
 		<template #message>
-			{{
-				$t('activity.knowledgePublishMessage', {
-					displayName: displayName,
-					title: title,
-				})
-			}}
+			{{ displayName }}
+			<span class='text-neutral-500'>{{ $t('activity.knowledgePublishMessage', { title: title }) }}</span>
 		</template>
 		<template #createdAtDate>{{ createdAtDateString }}</template>
 		<template #createdAtTime>{{ createdAtTimeString }}</template>
@@ -18,9 +14,9 @@
 				:to="`/workspace/`"
 				class="flex w-fit items-center space-x-2 rounded-lg border bg-white p-2 hover:text-sky-800 hover:underline"
 			>
-				<DocumentArrowUpIcon class="h-4 w-4 text-blue-600" />
+				<TipsIcon theme="filled" size="16" fill="#2563eb"/>
 				<p class="text-sm font-semibold">{{ title }}</p>
-				<ArrowUpRightIcon class="h-3 w-3" />
+				<ArrowRightUpIcon theme="outline" size="12" />
 			</router-link>
 		</template>
 	</Activity>
@@ -28,10 +24,7 @@
 
 <script setup>
 import Activity from '@/layouts/activity/activity.vue';
-import {
-	ArrowUpRightIcon,
-	DocumentArrowUpIcon,
-} from '@heroicons/vue/24/outline/index.js';
+import { Tips as TipsIcon, ArrowRightUp as ArrowRightUpIcon } from '@icon-park/vue-next';
 import { computed, onUnmounted, watch } from 'vue';
 import { getActivity } from '@/api/activity.js';
 import moment from 'moment';
