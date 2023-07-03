@@ -2,24 +2,24 @@
 	<Index>
 		<div class="flex h-full flex-col">
 			<Dock>
-				<div>
-					<h5 class="font-medium">Packages</h5>
-					<p class="text-sm">
-						Achieve your learning goal by choosing the right package
-					</p>
-				</div>
+				<template #icon>
+					<BoxIcon theme="filled" size="16" fill="#262626"/>
+				</template>
+				<template #path>
+					Packages
+				</template>
 			</Dock>
-			<div class="flex space-x-4 overflow-auto p-6">
+			<div class="flex-1 flex space-x-4 p-8 overflow-auto">
 				<transition-group
 					name="list"
 					tag="div"
-					class="flex-1 columns-3 space-y-4 overflow-auto"
+					class="flex-1 grid gap-4 xl:grid-cols-3 lg:grid-cols-2 grid-cols-1 h-fit"
 				>
 					<router-link
 						:to="`/packages/${pack.id}`"
 						:key="pack.id"
 						v-for="pack in packsFiltered"
-						class="block break-inside-avoid"
+						class="block"
 					>
 						<PackageCard :key="pack.id" :package-id="pack.id" />
 					</router-link>
@@ -56,11 +56,11 @@
 </template>
 
 <script setup>
+import { Box as BoxIcon } from '@icon-park/vue-next'
 import Index from '@/layouts/utils/index.vue';
 import { FunnelIcon } from '@heroicons/vue/24/solid';
 import { getPackages } from '@/api/package.js';
 import { computed, onUnmounted, ref, watch } from 'vue';
-import gsap from 'gsap';
 import Dock from '@/layouts/dock/dock.vue';
 import PackageCard from '@/layouts/package/packageCard.vue';
 import MultiAreaSelector from '@/components/pile/multiAreaSelector.vue';
@@ -86,12 +86,8 @@ watch(packageLoading, (newState, oldState) => {
 	}
 });
 
-const packsFilteredCount = ref(0);
-watch(packsFiltered, (newList) => {
-	gsap.to(packsFilteredCount, {
-		duration: 0.5,
-		value: Number(newList.length) || 0,
-	});
+const packsFilteredCount = computed(() => {
+	return packsFiltered.value?.length || 0
 });
 
 const areasSelected = ref();
