@@ -3,13 +3,13 @@
 		<div class="flex items-start justify-between">
 			<div class="flex items-start space-x-4">
 				<div class="rounded-full border border-blue-600 bg-white p-2">
-					<LightBulbIcon class="h-4 w-4" />
+					<TipsIcon theme='filled' size='16' fill='#404040' />
 				</div>
 				<div class="flex w-full items-center justify-between">
 					<div class="space-y-1">
-						<h5 class="font-semibold text-neutral-700">
+						<h6 class="font-semibold text-neutral-700">
 							{{ title }}
-						</h5>
+						</h6>
 						<div class="flex items-center space-x-1">
 							<VenustTag
 								v-for="area in areas"
@@ -43,21 +43,21 @@
 					>
 						BY
 					</div>
-					<p class="font-bold">{{ authorDisplayName }}</p>
+					<p class="font-bold text-sm text-neutral-700">{{ authorDisplayName }}</p>
 				</div>
 				<p class="text-sm text-neutral-500">
 					Published at
-					<span class="font-medium">
+					<span class="text-sm font-medium">
 						{{ publishedAtString }}
 					</span>
 				</p>
 			</div>
 			<div class="space-y-1">
-				<div class="flex items-center justify-between">
-					<p class="text-xs font-bold uppercase text-neutral-500">
+				<div class="flex items-center space-x-2">
+					<TargetIcon theme='outline' size='16' fill='#737373' />
+					<p class="text-sm font-bold uppercase text-neutral-500">
 						This knowledge is about
 					</p>
-					<FireIcon class="h-4 w-4 text-neutral-500" />
 				</div>
 				<p class="text-justify text-sm font-medium text-neutral-500">
 					{{ purpose }}
@@ -79,7 +79,7 @@
 </template>
 
 <script setup>
-import { LightBulbIcon, FireIcon } from '@heroicons/vue/24/outline/index.js';
+import { Tips as TipsIcon, Target as TargetIcon } from '@icon-park/vue-next';
 import VenustTag from '@/components/venust/tag/venustTag.vue';
 import { computed } from 'vue';
 

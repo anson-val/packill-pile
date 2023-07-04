@@ -2,11 +2,11 @@
 	<div class="space-y-8">
 		<div class="flex items-start space-x-4">
 			<div class="rounded-full border border-blue-600 bg-white p-2">
-				<BookOpenIcon class="h-4 w-4 text-neutral-700" />
+				<BookOneIcon theme='filled' size='16' fill='#404040' />
 			</div>
 			<div class="flex w-full items-center justify-between">
 				<div class="space-y-1">
-					<h5 class="font-semibold text-neutral-700">{{ title }}</h5>
+					<h6 class="font-semibold text-neutral-700">{{ title }}</h6>
 					<div class="flex items-center space-x-1">
 						<VenustTag
 							v-for="area in areas"
@@ -36,11 +36,11 @@
 					class="space-y-2 rounded-lg border bg-neutral-100 px-4 py-2"
 				>
 					<div class="flex items-center space-x-4">
-						<LightBulbIcon class="h-4 w-4 text-neutral-500" />
+						<TipsIcon theme='outline' size='16' fill='#737373' />
 						<div
 							class="flex flex-1 items-center justify-between space-x-4"
 						>
-							<p class="font-semibold text-neutral-500">
+							<p class="font-semibold text-neutral-500 text-sm">
 								{{ knowledge.title }}
 							</p>
 							<div
@@ -64,10 +64,7 @@
 </template>
 
 <script setup>
-import {
-	BookOpenIcon,
-	LightBulbIcon,
-} from '@heroicons/vue/24/outline/index.js';
+import { BookOne as BookOneIcon, Tips as TipsIcon } from '@icon-park/vue-next';
 import VenustTag from '@/components/venust/tag/venustTag.vue';
 import { computed } from 'vue';
 import VenustBadge from '@/components/venust/badge/venustBadge.vue';

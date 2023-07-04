@@ -3,14 +3,14 @@
 		<div class="flex items-start justify-between">
 			<div class="flex items-start space-x-4">
 				<div class="rounded-full border border-blue-600 bg-white p-2">
-					<UserIcon class="h-4 w-4" />
+					<UserIcon theme="filled" size="16" fill='#404040'/>
 				</div>
 				<div>
 					<h6 class="font-semibold text-neutral-700">
 						{{ displayName }}
 					</h6>
 					<div class="flex items-center space-x-1">
-						<AtSymbolIcon class="h-4 w-4 text-neutral-500" />
+						<AtSignIcon theme='outline' size='16' fill='#737373' />
 						<p class="text-sm text-neutral-700">{{ username }}</p>
 					</div>
 				</div>
@@ -29,9 +29,9 @@
 				<p class="text-sm font-bold uppercase text-neutral-500">
 					Location
 				</p>
-				<MapPinIcon class="h-4 w-4 text-neutral-500" />
+				<LocalPinIcon theme='outline' size='16' fill='#737373' />
 			</div>
-			<p class="text-sm font-bold capitalize text-neutral-500">
+			<p class="text-sm medium capitalize text-neutral-500">
 				{{ location }}
 			</p>
 		</div>
@@ -40,9 +40,9 @@
 				<p class="text-sm font-bold uppercase text-neutral-500">
 					Birthday
 				</p>
-				<CakeIcon class="h-4 w-4 text-neutral-500" />
+				<BirthdayCakeIcon theme='outline' size='16' fill='#737373' />
 			</div>
-			<p class="text-sm font-bold capitalize text-neutral-500">
+			<p class="text-sm medium capitalize text-neutral-500">
 				{{ birthdayDateString }}
 			</p>
 		</div>
@@ -51,29 +51,16 @@
 				<p class="text-sm font-bold uppercase text-neutral-500">
 					Contact details
 				</p>
-				<ChatBubbleOvalLeftEllipsisIcon
-					class="h-4 w-4 text-neutral-500"
-				/>
+				<PhoneTelephoneIcon outline='theme' size='16' fill='#737373'/>
 			</div>
 			<div class="flex items-center space-x-1">
 				<VenustTooltip>
 					<template #reference>
-						<AtSymbolIcon class="h-5 w-5 text-neutral-500" />
+						<AtSignIcon outline='theme' size='16' fill='#737373' />
 					</template>
-					<template #tooltip>Packill ID</template>
+					<template #tooltip>Packill username</template>
 				</VenustTooltip>
-				<p>{{ username }}</p>
-			</div>
-			<div class="flex items-center space-x-1">
-				<VenustTooltip>
-					<template #reference>
-						<EnvelopeIcon class="h-5 w-5 text-neutral-500" />
-					</template>
-					<template #tooltip>Email</template>
-				</VenustTooltip>
-				<a :href="`mailto:${email}`" class="text-sky-800">
-					{{ email }}
-				</a>
+				<p class='text-sm font-medium text-neutral-500'>{{ username }}</p>
 			</div>
 		</div>
 		<div class="space-y-2" v-if="bio">
@@ -91,14 +78,13 @@
 
 <script setup>
 import {
-	MapPinIcon,
-	AtSymbolIcon,
-	UserIcon,
-	CakeIcon,
-	EnvelopeIcon,
-	ChatBubbleOvalLeftEllipsisIcon,
-} from '@heroicons/vue/24/outline/index.js';
-import { computed } from 'vue';
+	User as UserIcon,
+	AtSign as AtSignIcon,
+	BirthdayCake as BirthdayCakeIcon,
+	LocalPin as LocalPinIcon,
+	PhoneTelephone as PhoneTelephoneIcon,
+} from '@icon-park/vue-next';
+import { computed, toRefs } from 'vue';
 import VenustAvatar from '@/components/venust/avatar/venustAvatar.vue';
 import moment from 'moment';
 import VenustTooltip from '@/components/venust/tooltip/venustTooltip.vue';
@@ -107,28 +93,26 @@ const props = defineProps({
 	userObject: Object,
 });
 
+const { userObject } = toRefs(props);
+
 const id = computed(() => {
-	return props.userObject.id;
+	return userObject.value.id;
 });
 
 const displayName = computed(() => {
-	return props.userObject.displayName;
+	return userObject.value.displayName;
 });
 
 const username = computed(() => {
-	return props.userObject.username;
+	return userObject.value.username;
 });
 
 const bio = computed(() => {
-	return props.userObject.bio;
+	return userObject.value.bio;
 });
 
 const location = computed(() => {
-	return props.userObject.location;
-});
-
-const email = computed(() => {
-	return props.userObject.email;
+	return userObject.value.location;
 });
 
 const birthday = computed(() => {
