@@ -32,9 +32,7 @@
 									<div
 										class='rounded-l-lg border border-r-0 border-gray-300 bg-neutral-50 px-2 py-2 shadow-sm'
 									>
-										<MagnifyingGlassIcon
-											class='h-6 w-6 text-gray-500'
-										/>
+										<SearchIcon theme='outline' size='24' fill='#737373' />
 									</div>
 									<input
 										v-focus
@@ -129,9 +127,7 @@
 																<span
 																	class='h-3 w-3 rounded-bl border-b-2 border-l-2 border-neutral-300'
 																/>
-																	<Square3Stack3DIcon
-																		class='h-4 w-4 text-neutral-700'
-																	/>
+																	<BoxIcon theme='filled' size='16' fill='#404040' />
 																	<div>
 																		<label
 																			class='font-medium text-neutral-700'
@@ -214,9 +210,8 @@
 																<span
 																	class='h-3 w-3 rounded-bl border-b-2 border-l-2 border-neutral-300'
 																/>
-																	<BookOpenIcon
-																		class='h-4 w-4 text-neutral-700'
-																	/>
+																	<BookOneIcon theme='filled' size='16'
+																				 fill='#404040' />
 																	<div>
 																		<label
 																			class='font-medium text-neutral-700'
@@ -293,9 +288,7 @@
 																<span
 																	class='h-3 w-3 rounded-bl border-b-2 border-l-2 border-neutral-300'
 																/>
-																	<LightBulbIcon
-																		class='h-4 w-4 text-neutral-700'
-																	/>
+																	<TipsIcon theme='filled' size='16' fill='#404040'/>
 																	<div>
 																		<label
 																			class='font-medium text-neutral-700'
@@ -389,9 +382,8 @@
 																		<div
 																			class='flex w-full items-center justify-center space-x-0.5'
 																		>
-																			<AtSymbolIcon
-																				class='h-3 w-3 text-neutral-700'
-																			/>
+																			<AtSignIcon theme='outline' size='12'
+																						fill='#404040' />
 																			<label
 																				class='text-center text-xs'
 																			>
@@ -440,12 +432,12 @@
 									<label
 										class='rounded border border-blue-600 px-1 text-xs shadow transition'
 									>
-										<ArrowLongUpIcon class='h-3 w-3' />
+										<ArrowUpIcon theme='outline' size='12' fill='#404040'/>
 									</label>
 									<label
 										class='rounded border border-blue-600 px-1 text-xs shadow transition'
 									>
-										<ArrowLongDownIcon class='h-3 w-3' />
+										<ArrowDownIcon theme='outline' size='12' fill='#404040'/>
 									</label>
 								</div>
 								<p
@@ -492,14 +484,14 @@
 
 <script setup>
 import {
-	AtSymbolIcon,
-	MagnifyingGlassIcon,
-	Square3Stack3DIcon,
-	BookOpenIcon,
-	LightBulbIcon,
-	ArrowLongUpIcon,
-	ArrowLongDownIcon,
-} from '@heroicons/vue/24/outline/index.js';
+	AtSign as AtSignIcon,
+	Search as SearchIcon,
+	Box as BoxIcon,
+	BookOne as BookOneIcon,
+	Tips as TipsIcon,
+	ArrowUp as ArrowUpIcon,
+	ArrowDown as ArrowDownIcon,
+} from '@icon-park/vue-next';
 import MultiTagSelector from '@/components/pile/multiTagSelector.vue';
 import { instantMeiliSearch } from '@meilisearch/instant-meilisearch';
 import VenustBadge from '@/components/venust/badge/venustBadge.vue';
